@@ -1,0 +1,98 @@
+
+<div class="container divcenter ">
+    <div class="row">
+        <div class="col-md-12">
+            <h3> FORMULARIO DE REGISTRO </h3>
+        </div>
+    </div>
+    <div class="row">
+        <form class="bg-light" [formGroup] = "formularioRegistro" (ngSubmit)="enviarFormulario();">
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre </label>
+                    <input id="nombre" type="text"
+                    name="nombre"
+                    formControlName = "nombre"
+                    class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="apellidos" class="form-label">Apellidos</label>
+                    <input id="apellidos" type="text" 
+                    name="apellidos" 
+                    formControlName = "apellidos"
+                    class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="telf" class="form-label">Teléfono</label>
+                    <input id="telf" type="telf" 
+                    name="telf"
+                    formControlName = "telefono"
+                    class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" type="email" 
+                    name="email"
+                    formControlName = "email"
+                    class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="direccion" class="form-label">Dirección</label>
+                    <input id="direccion" type="text" 
+                    name = "direccion"
+                    formControlName = "direccion"
+                    class = "form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="localidad" class="form-label">Localidad</label>
+                    <input id="localidad" type="text" 
+                    name = "localidad" 
+                    formControlName = "localidad"
+                    class = "form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="provincia" class="form-label">Provincia</label>
+                    <input id="provincia" type="text" 
+                    name = "provincia"
+                    formControlName = "provincia" 
+                    class = "form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="pass" class="form-label">Contraseña</label>
+                    <input  id="pass" type="password" 
+                    name = "pass"
+                    formControlName = "pass" 
+                    class = "form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="passConfirm" class="form-label">Repetir Contraseña</label>
+                    <input  id="passConfirm" type="password" 
+                    name = "passConfirm"
+                    formControlName = "passConfirm" 
+                    class = "form-control">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="conditionCheck" 
+                    class="form-check-input"
+                    name="conditionCheck"
+                    formControlName = "conditionCheck">
+                    <label class="form-check-label" for="conditionCheck">
+                        Acepto las condiciones de uso
+                    </label>
+                </div>
+                <div class="text-center">
+                    <button type="submit"
+                    class="btn btn-primary"
+                    [disabled]= "!formularioRegistro.valid" value="enviar">Registrarse</button>
+                    <div class="alert alert-info" *ngIf="!formularioRegistro.valid">
+                        Debe rellenar correctamente todos los campos.
+                    </div>
+                    <div class="alert alert-info" *ngIf="formularioRegistro.valid">
+                        Se le redigirá a la página de Login
+                    </div>
+
+                </div>
+                </div>
+            </form>
+    </div>
+</div>
