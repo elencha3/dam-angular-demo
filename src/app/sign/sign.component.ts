@@ -1,6 +1,6 @@
-import { ContactForm } from '../models/contact-form';
+import { ContactForm } from '../models/contact-form.model';
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, Validators } from "@angular/forms";
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,6 +19,13 @@ export class SignComponent implements OnInit {
     
     ngOnInit(){}
 
+    mustMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+        let passVal = control.get('pass');
+        let passConfirmVal = control.get('passConfirm');
+
+        return passVal?.value === passConfirmVal?.value ? null : { noMatch: true} ;
+    };
+
     //Declaración de formulario y validaciones
     formularioRegistro = this.formBuilder.group({
         nombre: ['', Validators.required],
@@ -29,10 +36,12 @@ export class SignComponent implements OnInit {
         localidad: [''],
         provincia: [''],
         pass: ['', Validators.required],
-        passConfirm: ['', Validators.required],
+        passConfirm: [''], //Al añadir la validación para que coincidan, no es necesario añadir requerido (documentación Angular)
         conditionCheck: ['', Validators.requiredTrue]
-    });
+    }, {validators: this.mustMatchValidator});
+
     
+
     //Acción al enviar formulario
     enviarFormulario(): void {
         console.log("Enviando formulario");

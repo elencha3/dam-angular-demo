@@ -57,12 +57,13 @@
                     formControlName = "provincia" 
                     class = "form-control">
                 </div>
+                
                 <div class="mb-3">
-                    <label for="pass" class="form-label">Contraseña</label>
-                    <input  id="pass" type="password" 
-                    name = "pass"
-                    formControlName = "pass" 
-                    class = "form-control">
+                        <label for="pass" class="form-label">Contraseña</label>
+                        <input  id="pass" type="password" 
+                        name = "pass"
+                        formControlName = "pass" 
+                        class = "form-control">
                 </div>
                 <div class="mb-3">
                     <label for="passConfirm" class="form-label">Repetir Contraseña</label>
@@ -71,6 +72,11 @@
                     formControlName = "passConfirm" 
                     class = "form-control">
                 </div>
+
+                <div *ngIf="formularioRegistro.errors?.noMatch" class="cross-validation-error-message alert alert-danger">
+                    Las contraseñas deben coincidir.
+                </div>
+                
                 <div class="form-check">
                     <input type="checkbox" id="conditionCheck" 
                     class="form-check-input"
