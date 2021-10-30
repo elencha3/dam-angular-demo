@@ -1,36 +1,35 @@
-
 <div class="container divcenter ">
     <div class="row">
         <div class="col-md-12">
-            <h3> FORMULARIO DE REGISTRO </h3>
+            <h3>{{this.title}} </h3>
         </div>
     </div>
     <div class="row">
         <form class="bg-light" [formGroup] = "formularioRegistro" (ngSubmit)="enviarFormulario();">
             <div class="col-md-12">
                 <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre </label>
+                    <label for="nombre" class="form-label">Nombre* </label>
                     <input id="nombre" type="text"
                     name="nombre"
                     formControlName = "nombre"
                     class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="apellidos" class="form-label">Apellidos</label>
+                    <label for="apellidos" class="form-label">Apellidos*</label>
                     <input id="apellidos" type="text" 
                     name="apellidos" 
                     formControlName = "apellidos"
                     class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="telf" class="form-label">Teléfono</label>
+                    <label for="telf" class="form-label">Teléfono*</label>
                     <input id="telf" type="telf" 
                     name="telf"
                     formControlName = "telefono"
                     class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
+                    <label for="email" class="form-label">Email*</label>
                     <input id="email" type="email" 
                     name="email"
                     formControlName = "email"
@@ -59,14 +58,14 @@
                 </div>
                 
                 <div class="mb-3">
-                        <label for="pass" class="form-label">Contraseña</label>
-                        <input  id="pass" type="password" 
-                        name = "pass"
-                        formControlName = "pass" 
-                        class = "form-control">
+                    <label for="pass" class="form-label">Contraseña*</label>
+                    <input  id="pass" type="password" 
+                    name = "pass"
+                    formControlName = "pass" 
+                    class = "form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="passConfirm" class="form-label">Repetir Contraseña</label>
+                    <label for="passConfirm" class="form-label">Repetir Contraseña*</label>
                     <input  id="passConfirm" type="password" 
                     name = "passConfirm"
                     formControlName = "passConfirm" 

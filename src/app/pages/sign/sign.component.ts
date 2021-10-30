@@ -1,4 +1,4 @@
-import { ContactForm } from '../models/contact-form.model';
+import { ContactForm } from '../../models/contact-form.model';
 import { Component, OnInit } from "@angular/core";
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
@@ -13,9 +13,14 @@ import { Router } from '@angular/router';
 
 export class SignComponent implements OnInit {
 
+    public title: string;
+    
+
     constructor(
         private formBuilder: FormBuilder,
-        private router: Router){}
+        private router: Router,){
+            this.title = "Formulario de Registro";
+        }
     
     ngOnInit(){}
 
@@ -30,7 +35,7 @@ export class SignComponent implements OnInit {
     formularioRegistro = this.formBuilder.group({
         nombre: ['', Validators.required],
         apellidos: ['', Validators.required],
-        telefono: ['', Validators.compose([Validators.required, Validators.minLength(9)])],
+        telefono:  ['', Validators.required],
         email: ['', Validators.compose([Validators.email, Validators.required])],
         direccion: [''],
         localidad: [''],
@@ -58,7 +63,8 @@ export class SignComponent implements OnInit {
         this.formularioRegistro.value.passConfirm,
         this.formularioRegistro.value.conditionCheck   
     )
-    this.router.navigate(['/loginApplication']);
+    
+    // this.router.navigate(['/loginApplication']);
     }
     
 }
